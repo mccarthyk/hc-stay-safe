@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>hc-stay-safe</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>hc-stay-safe</title>
+
+  <link rel="stylesheet" href="https://commbocc.github.io/html-wrapper/static/css/app.css">
+</head>
+<body>
+
+  <!-- <div id="app"></div> -->
+
+  <section class="py-5">
+    <div class="container">
+      <div id="sandbags"></div>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="text-right">
+        <a href="https://docs.google.com/spreadsheets/d/14c7p2JUfuRTC9JcbvG--pOu6IRtVuMZ7Flkv0EZ54Io/edit#gid=1066978540" target="_blank">Spreadsheet Data</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- include babel-polyfill for IE11 Promise support -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+  <script src="./dist/build.js"></script>
+  <script type="text/javascript">
+  // var app = new HcStaySafe.default().$mount('#app')
+  var sandbags = new HcStaySafe.sandbags().$mount('#sandbags');
+</script>
+</body>
 </html>

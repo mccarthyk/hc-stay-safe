@@ -1,7 +1,17 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
+import Sandbags from './components/Sandbags'
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
+import store from './store'
+
+export default Vue.extend({
+  store,
+  extends: App
 })
+
+let sandbags = Vue.extend({
+  store,
+  extends: Sandbags
+})
+
+export { sandbags }
