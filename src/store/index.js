@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex, { mapState, mapGetters, mapActions } from 'vuex'
+import Vuex from 'vuex'
 
 import sandbags from './modules/sandbags'
 
@@ -11,4 +11,4 @@ export default new Vuex.Store({
   }
 })
 
-export const storeMixin = {}
+// export const storeMixin = {}
