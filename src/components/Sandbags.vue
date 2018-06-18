@@ -5,12 +5,12 @@
       <strong>
         {{ title }}
       </strong>
-      <div class="text-muted text-right small" v-if="sandbagsModifiedDate">
-        Last Modified: {{ sandbagsModifiedDate.format('lll') }}
+      <div class="text-muted text-right small" v-if="updated">
+        Last Modified: {{ lastModified.format('lll') }}
       </div>
     </div>
 
-    <table v-if="activeSandbagLocations.length" class="table table-striped mb-0">
+    <table v-if="sandbagLocations.length" class="table table-striped mb-0">
       <thead>
         <tr>
           <th colspan="2">Location</th>
@@ -19,23 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="sandbag in activeSandbagLocations">
-          <td width="1px">
-            <a v-if="sandbag.address" :href="`https://google.com/maps/search/${sandbag.address}`" target="_blank" class="hide-external-indicator" :title="sandbag.address">
-              <span class="fa fa-fw fa-map-marker" aria-label="map"></span>
-            </a>
-          </td>
-          <td>
-            <a v-if="sandbag.link" :href="sandbag.link" target="_blank" class="hide-external-indicator">
-              {{ sandbag.location }}
-            </a>
-            <template v-else>
-              {{ sandbag.location }}
-            </template>
-          </td>
-          <td>{{ sandbag.range }}</td>
-          <td>{{ sandbag.info }}</td>
-        </tr>
+        <tr v-for="location in sandbagLocations" is="SandbagLocation" :location="location" />
       </tbody>
     </table>
 
@@ -49,11 +33,14 @@
 </template>
 
 <script>
-import { sandbagsMixin } from '../store/modules/sandbags'
+import GoogleSheetModel from 'google-sheet-model'
+import SandbagLocation from './SandbagLocation'
+import moment from 'moment'
 
 export default {
   name: 'Sandbags',
-  mixins: [sandbagsMixin],
+  extends: GoogleSheetModel,
+  components: { SandbagLocation },
   props: {
     title: {
       type: String,
@@ -62,10 +49,25 @@ export default {
     headerClass: {
       type: String,
       default: ''
+    },
+    // google sheet model props
+    sheetId: {
+      default: '14c7p2JUfuRTC9JcbvG--pOu6IRtVuMZ7Flkv0EZ54Io'
+    },
+    tableId: {
+      default: 1
+    },
+    fields: {
+      default: () => { return ['location', 'address', 'link', 'starttime', 'endtime', 'info'] }
     }
   },
-  mounted () {
-    this.fetchSandbags()
+  computed: {
+    sandbagLocations () {
+      return this.instances.filter(x => SandbagLocation.methods.dateToMoment(x.endtime).isAfter())
+    },
+    lastModified () {
+      return moment(this.updated)
+    }
   }
 }
 </script>

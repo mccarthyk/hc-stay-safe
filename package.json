@@ -10,9 +10,9 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "google-sheet-model": "git+https://github.com/Commbocc/google-sheet-model.git",
     "moment": "^2.22.1",
-    "vue": "^2.5.11",
-    "vuex": "^3.0.1"
+    "vue": "^2.5.11"
   },
   "browserslist": [
     "> 1%",
