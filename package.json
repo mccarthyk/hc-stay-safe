@@ -11,10 +11,7 @@
   },
   "dependencies": {
     "google-sheet-model": "git+https://github.com/Commbocc/google-sheet-model.git",
-    "hc-satellite-wrapper": "git+https://github.com/Commbocc/html-wrapper.git",
     "moment": "^2.22.1",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.3",
     "vue": "^2.5.11"
   },
   "browserslist": [
@@ -30,6 +27,9 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "hc-html-wrapper": "git+https://github.com/Commbocc/html-wrapper.git",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
