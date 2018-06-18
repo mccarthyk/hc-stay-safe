@@ -3,7 +3,7 @@
 
     <div class="row align-items-center">
       <div class="col-md-3 text-center">
-        <img src="https://hillsboroughcounty.org/library/hillsborough/promotions/hcflalerttight.png" class="img-fluid mx-auto mb-3 img-responsive center-block">
+        <img src="https://hillsboroughcounty.org/library/hillsborough/promotions/hcflalerttight.png" alt="HCFL Alert Hillsborough County" class="img-fluid mx-auto mb-3 img-responsive center-block">
       </div>
       <div class="col-md-9">
 

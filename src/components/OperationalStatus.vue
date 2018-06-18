@@ -6,7 +6,18 @@
     </div>
 
     <table class="table table-striped mb-0">
-      <tbody>
+      <caption class="sr-only">
+        <p>
+          The current active storms are: <slot name="activeStorms"></slot>
+        </p>
+        <p>
+          The current evacuation levels are: <slot name="evacuationLevels"></slot>
+        </p>
+        <p>
+          The current EOC status is: <slot name="eocStatus"></slot>
+        </p>
+      </caption>
+      <tbody aria-hidden="true">
         <tr>
           <th class="text-right">Active Storm(s)</th>
           <td>

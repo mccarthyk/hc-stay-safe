@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <table v-if="sandbagLocations.length" class="table table-striped mb-0">
+    <table v-if="sandbagLocations.length" :summary="sandbagLocations" class="table table-striped mb-0">
       <thead>
         <tr>
           <th colspan="2">Location</th>
@@ -67,6 +67,9 @@ export default {
     },
     lastModified () {
       return moment(this.updated)
+    },
+    tableSummary () {
+      return 'Locations and scheduling of sandbag distributions.'
     }
   }
 }
