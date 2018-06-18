@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "google-sheet-model": "git+https://github.com/Commbocc/google-sheet-model.git",
+    "hc-satellite-wrapper": "git+https://github.com/Commbocc/html-wrapper.git",
     "moment": "^2.22.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
     "vue": "^2.5.11"
   },
   "browserslist": [

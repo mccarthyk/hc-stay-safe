@@ -1,10 +1,7 @@
 import Vue from 'vue'
+import App from './App'
 
-import HcflAlert from './components/HcflAlert'
-import OperationalStatus from './components/OperationalStatus'
-import CardListGroup from './components/CardListGroup'
-import Sandbags from './components/Sandbags'
-
-export default Vue.extend({
-  components: { HcflAlert, OperationalStatus, CardListGroup, Sandbags }
+export default new Vue({
+  extends: App,
+  el: '#staySafe'
 })
