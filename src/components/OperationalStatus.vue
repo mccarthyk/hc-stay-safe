@@ -8,32 +8,32 @@
     <table class="table table-striped mb-0">
       <caption class="sr-only">
         <p>
-          The current active storms are: <slot name="activeStorms"></slot>
+          The current active storms are: {{ storms }}
         </p>
         <p>
-          The current evacuation levels are: <slot name="evacuationLevels"></slot>
+          The current evacuation levels are: {{ evacLevels }}
         </p>
         <p>
-          The current EOC status is: <slot name="eocStatus"></slot>
+          The current EOC status is: {{ eocStatus }}
         </p>
       </caption>
       <tbody aria-hidden="true">
         <tr>
           <th class="text-right">Active Storm(s)</th>
           <td>
-            <slot name="activeStorms"></slot>
+            {{ storms }}
           </td>
         </tr>
         <tr>
           <th class="text-right">Evacuation Level(s)</th>
           <td>
-            <slot name="evacuationLevels"></slot>
+            {{ evacLevels }}
           </td>
         </tr>
         <tr>
           <th class="text-right">EOC Status</th>
           <td>
-            <slot name="eocStatus"></slot>
+            {{ eocStatus }}
           </td>
         </tr>
       </tbody>
@@ -53,6 +53,18 @@ export default {
     headerClass: {
       type: String,
       default: 'bg-primary text-white'
+    },
+    storms: {
+      type: String,
+      default: 'None'
+    },
+    evacLevels: {
+      type: String,
+      default: 'None at this time'
+    },
+    eocStatus: {
+      type: String,
+      default: 'Monitoring'
     }
   }
 }
