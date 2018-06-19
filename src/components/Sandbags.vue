@@ -58,7 +58,7 @@ export default {
       default: 1
     },
     fields: {
-      default: () => { return ['location', 'address', 'link', 'starttime', 'endtime', 'info'] }
+      default: () => ['location', 'address', 'link', 'starttime', 'endtime', 'info']
     }
   },
   computed: {
