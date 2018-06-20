@@ -25,16 +25,19 @@ export default {
   name: 'SandbagLocation',
   props: ['location'],
   methods: {
-    dateToMoment (date) {
-      return moment(date, 'MM/DD/YYYY hh:mm A')
+    getStartTime (x) {
+      return moment(`${x.startdate} ${x.starttime}`, 'YYYY-MM-DD hh:mm')
+    },
+    getEndTime (x) {
+      return moment(`${x.enddate} ${x.endtime}`, 'YYYY-MM-DD hh:mm')
     }
   },
   computed: {
     startTime () {
-      return this.dateToMoment(this.location.starttime)
+      return this.getStartTime(this.location)
     },
     endTime () {
-      return this.dateToMoment(this.location.endtime)
+      return this.getEndTime(this.location)
     },
     range () {
       if (this.startTime.isSame(this.endTime, 'day')) {

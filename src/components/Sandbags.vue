@@ -58,12 +58,12 @@ export default {
       default: 1
     },
     fields: {
-      default: () => ['location', 'address', 'link', 'starttime', 'endtime', 'info']
+      default: () => ['location', 'address', 'link', 'startdate', 'starttime', 'enddate', 'endtime', 'info']
     }
   },
   computed: {
     sandbagLocations () {
-      return this.instances.filter(x => SandbagLocation.methods.dateToMoment(x.endtime).isAfter())
+      return this.instances.filter(x => SandbagLocation.methods.getEndTime(x).isAfter())
     },
     lastModified () {
       return moment(this.updated)
