@@ -1,37 +1,26 @@
 <template lang="html">
-  <div class="card mb-3 mb-md-5 card-body bg-white">
+  <div class="card card-body text-center mb-5">
+    <a href="https://member.everbridge.net/index/1332612387832180?#/login" target="_blank" class="hide-external-indicator">
+      <img src="https://hillsboroughcounty.org/library/hillsborough/promotions/hcflalerttight.png" alt="HCFL Alert Hillsborough County" class="img-fluid mb-3">
+    </a>
 
-    <div class="row align-items-center">
-      <div class="col-md-3 text-center">
-        <img src="https://hillsboroughcounty.org/library/hillsborough/promotions/hcflalerttight.png" alt="HCFL Alert Hillsborough County" class="img-fluid mx-auto mb-3 img-responsive center-block">
-      </div>
-      <div class="col-md-9">
-
-        <div class="d-none d-md-block">
-          <slot></slot>
-        </div>
-
-        <div class="row hide-external-indicator">
-          <div class="col-sm-6">
-            <p class="">
-              <a href="https://member.everbridge.net/index/1332612387832180?#/signup" target="_blank" class="btn btn-primary btn-block">Create Profile</a>
-            </p>
-          </div>
-          <div class="col-sm-6">
-            <p class="mb-0">
-              <a href="https://member.everbridge.net/index/1332612387832180?#/login" target="_blank" class="btn btn-info btn-block">Edit Profile</a>
-            </p>
-          </div>
-        </div>
-
-      </div>
+    <div class="text-muted small">
+      <slot></slot>
+      <a href="https://member.everbridge.net/index/1332612387832180?#/signup" target="_blank" class="hide-external-indicator">
+        {{ signUpText }}
+      </a>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HCFLAlert'
+  name: 'HCFLAlert',
+  props: {
+    signUpText: {
+      type: String,
+      default: 'Sign Up Today!'
+    }
+  }
 }
 </script>

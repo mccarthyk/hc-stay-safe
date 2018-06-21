@@ -1,12 +1,15 @@
-#staySafe {
-  // @import "~bootstrap/scss/bootstrap";
-  @import "~hc-html-wrapper/src/sass/custom";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins";
-  @import "~bootstrap/scss/card";
-  @import "~bootstrap/scss/media";
-  @import "~bootstrap/scss/list-group";
-  @import "~bootstrap/scss/tables";
-  @import "~bootstrap/scss/utilities";
+@import "~hc-html-wrapper/src/sass/custom";
+
+#staySafeJumbo {
+  background-size: cover !important;
+  background-position: center !important;
+  background: linear-gradient(135deg, rgba($primary, 0.8), rgba($secondary, 0.8)), url('https://hillsboroughcounty.org/library/hillsborough/media-center/images/staysafebanner.png');
+
+  .list-group-item {
+    background: none;
+    border-color: rgba($info, 0.3);
+    &:first-child {
+      border-top: none;
+    }
+  }
 }
