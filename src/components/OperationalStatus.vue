@@ -1,43 +1,32 @@
 <template lang="html">
-  <div class="card mb-3 mb-md-5">
+  <div class="list-group list-group-flush text-center mt-4">
 
-    <div class="card-header text-center" :class="headerClass">
-      <strong>{{ title }}</strong>
+    <div class="list-group-item py-2 d-flex justify-content-center align-items-center">
+      <div class="px-3 w-50 text-right">
+        Active Storm(s)
+      </div>
+      <strong class="px-3 w-50 text-left font-weight-bold">
+        {{ storms }}
+      </strong>
     </div>
 
-    <table class="table table-striped mb-0">
-      <caption class="sr-only">
-        <p>
-          The current active storms are: {{ storms }}
-        </p>
-        <p>
-          The current evacuation levels are: {{ evacLevels }}
-        </p>
-        <p>
-          The current EOC status is: {{ eocStatus }}
-        </p>
-      </caption>
-      <tbody aria-hidden="true">
-        <tr>
-          <th class="text-right">Active Storm(s)</th>
-          <td>
-            {{ storms }}
-          </td>
-        </tr>
-        <tr>
-          <th class="text-right">Evacuation Level(s)</th>
-          <td>
-            {{ evacLevels }}
-          </td>
-        </tr>
-        <tr>
-          <th class="text-right">EOC Status</th>
-          <td>
-            {{ eocStatus }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="list-group-item py-2 d-flex justify-content-center align-items-center">
+      <div class="px-3 w-50 text-right">
+        Evacuation Level(s)
+      </div>
+      <strong class="px-3 w-50 text-left font-weight-bold">
+        {{ evacLevels }}
+      </strong>
+    </div>
+
+    <div class="list-group-item py-2 d-flex justify-content-center align-items-center">
+      <div class="px-3 w-50 text-right">
+        EOC Status
+      </div>
+      <strong class="px-3 w-50 text-left font-weight-bold">
+        {{ eocStatus }}
+      </strong>
+    </div>
 
   </div>
 </template>
@@ -49,10 +38,6 @@ export default {
     title: {
       type: String,
       default: 'Operational Status'
-    },
-    headerClass: {
-      type: String,
-      default: 'bg-primary text-white'
     },
     storms: {
       type: String,

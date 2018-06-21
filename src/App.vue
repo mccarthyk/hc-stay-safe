@@ -1,11 +1,13 @@
 <script>
-import HcflAlert from './components/HcflAlert'
+import Jumbotron from './components/Jumbotron'
+import LatestUpdates from './components/LatestUpdates'
 import OperationalStatus from './components/OperationalStatus'
-import CardListGroup from './components/CardListGroup'
-import Sandbags from './components/Sandbags'
+import Aide from './components/Aide'
+import ReportDamage from './components/ReportDamage'
+import Links from './components/Links'
 
 export default {
-  components: { HcflAlert, OperationalStatus, CardListGroup, Sandbags }
+  components: { Jumbotron, LatestUpdates, OperationalStatus, Aide, ReportDamage, Links }
 }
 </script>
 

@@ -1,16 +1,19 @@
 <template lang="html">
-  <div class="card mb-3 mb-md-5">
+  <div v-if="locations.length" class="card mb-3 mb-md-5">
 
     <div class="card-header px-3 d-flex align-items-center justify-content-between" :class="headerClass">
-      <strong>
+      <strong class="font-serif">
         {{ title }}
       </strong>
-      <div class="text-muted text-right small" v-if="updated">
+      <div class="text-light text-right small" v-if="updated">
         Last Modified: {{ lastModified.format('lll') }}
       </div>
     </div>
 
-    <table v-if="sandbagLocations.length" :summary="sandbagLocations" class="table table-striped mb-0">
+    <table class="table table-striped mb-0" :aria-label="title">
+      <caption class="sr-only">
+        <slot></slot>
+      </caption>
       <thead>
         <tr>
           <th colspan="2">Location</th>
@@ -19,57 +22,50 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="location in sandbagLocations" is="SandbagLocation" :location="location" />
+        <tr v-for="location in locations" is="Location" :location="location" />
       </tbody>
     </table>
-
-    <div v-else class="card-body text-center">
-      <p class="card-text text-muted lead">
-        There are no locations currently offering sandbags.
-      </p>
-    </div>
 
   </div>
 </template>
 
 <script>
 import GoogleSheetModel from 'google-sheet-model'
-import SandbagLocation from './SandbagLocation'
+import Location from './Location'
 import moment from 'moment'
 
 export default {
-  name: 'Sandbags',
+  name: 'Locations',
   extends: GoogleSheetModel,
-  components: { SandbagLocation },
+  components: { Location },
   props: {
     title: {
       type: String,
-      default: 'Sandbag Locations'
+      default: 'Locations'
     },
     headerClass: {
       type: String,
-      default: ''
+      default: 'bg-secondary text-white'
     },
     // google sheet model props
     sheetId: {
       default: '14c7p2JUfuRTC9JcbvG--pOu6IRtVuMZ7Flkv0EZ54Io'
-    },
-    tableId: {
-      default: 1
     },
     fields: {
       default: () => ['location', 'address', 'link', 'startdate', 'starttime', 'enddate', 'endtime', 'info']
     }
   },
   computed: {
-    sandbagLocations () {
-      return this.instances.filter(x => SandbagLocation.methods.getEndTime(x).isAfter())
+    locations () {
+      return this.instances.filter(x => Location.methods.getEndTime(x).isAfter())
     },
     lastModified () {
       return moment(this.updated)
-    },
-    tableSummary () {
-      return 'Locations and scheduling of sandbag distributions.'
+    }
+  },
+  updated () {
+    if (this.locations.length) {
+      this.$emit('hasLocations')
     }
   }
 }
